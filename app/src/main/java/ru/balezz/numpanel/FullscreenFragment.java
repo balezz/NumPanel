@@ -3,6 +3,8 @@ package ru.balezz.numpanel;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +15,8 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.DrawableUtils;
+import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -24,9 +28,17 @@ public class FullscreenFragment extends Fragment {
     ImageView mView1;
     View mDecorView;
     int uiOptions;
+    private int mColor;
 
     public static Fragment getInstance() {
         return new FullscreenFragment();
+    }
+
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mColor = getActivity().getIntent().getIntExtra(StartActivity.EXTRA_COLOR, Color.BLACK);
     }
 
     @Nullable
@@ -40,6 +52,11 @@ public class FullscreenFragment extends Fragment {
 
         mView0 = (ImageView) v.findViewById(R.id.n0);
         mView1 = (ImageView) v.findViewById(R.id.n1);
+
+        Drawable d = getResources().getDrawable(R.drawable.ic_0);
+
+        mView0.setImageDrawable(d);
+        mView1.setImageDrawable(d);
 
         mDecorView = getActivity().getWindow().getDecorView();
         uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
@@ -76,6 +93,8 @@ public class FullscreenFragment extends Fragment {
                 dialog.show(fm, TAG);
             }
         });
+
+        setColor();
         return v;
     }
 
@@ -90,6 +109,16 @@ public class FullscreenFragment extends Fragment {
         } else if (panelIndex == 1) {
             setNumber(mView1, number);
         }
+        setColor();
+    }
+
+
+    private void setColor() {
+        Drawable d0 = DrawableCompat.wrap(mView0.getDrawable());
+        Drawable d1 = DrawableCompat.wrap(mView1.getDrawable());
+        DrawableCompat.setTint(d0, mColor);
+        DrawableCompat.setTint(d1, mColor);
+
     }
 
     private void setNumber(ImageView imageView, int number) {

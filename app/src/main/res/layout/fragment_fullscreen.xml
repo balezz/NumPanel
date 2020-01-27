@@ -18,7 +18,7 @@
             android:layout_weight="0.5"
             android:layout_height="match_parent"
             android:layout_margin="8dp"
-            android:src="@drawable/ic_1"/>
+            />
 
         <ImageView
             android:id="@+id/n1"
@@ -26,6 +26,6 @@
             android:layout_weight="0.5"
             android:layout_height="match_parent"
             android:layout_margin="8dp"
-            android:src="@drawable/ic_1"/>
+            />
 
 </LinearLayout>
