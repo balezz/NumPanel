@@ -46,7 +46,7 @@ public class NumPickerFragment extends DialogFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.dialog_layout, container);
+        View v = inflater.inflate(R.layout.dialog_layout_1, container);
         setListeners(v);
         return v;
     }
