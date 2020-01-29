@@ -10,7 +10,7 @@
 
 ## Скриншоты  
 
-![](imgs/Screenshot_1580316281.png)
-![](imgs/Screenshot_1580316287.png)
+![](imgs/Screenshot_1580316281.jpg)
+![](imgs/Screenshot_1580316287.jpg)
   
 Приложение доступно в Google Play Market по ссылке: 
