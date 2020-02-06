@@ -12,4 +12,6 @@
     <string name="red_btn">Красный</string>
     <string name="inverse_btn">Инверсный</string>
     <string name="info_title">Справка</string>
+    <string name="blue_btn">Синий</string>
+    <string name="yellow_btn">Желтый</string>
 </resources>

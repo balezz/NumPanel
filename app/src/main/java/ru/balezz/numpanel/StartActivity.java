@@ -1,28 +1,27 @@
 package ru.balezz.numpanel;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
+
+import org.jetbrains.annotations.Nullable;
 
 public class StartActivity extends AppCompatActivity {
     public static final String EXTRA_COLOR = "extra_color";
     private static final String TAG = "StartActivity";
 
     Button mButtonBlack;
-    Button mButtonGreen;
+    Button mButtonYellow;
+    Button mButtonBlue;
     Button mButtonRed;
 
     @Override
@@ -30,11 +29,14 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        mButtonBlack = findViewById(R.id.btn_black);
+        mButtonBlack = findViewById(R.id.button_black);
         setListener(mButtonBlack, Color.BLACK);
 
-        mButtonGreen = findViewById(R.id.button_green);
-        setListener(mButtonGreen, Color.GREEN);
+        mButtonBlue = findViewById(R.id.button_blue);
+        setListener(mButtonBlue, Color.BLUE);
+
+        mButtonYellow = findViewById(R.id.button_yellow);
+        setListener(mButtonYellow, Color.YELLOW);
 
         mButtonRed = findViewById(R.id.button_red);
         setListener(mButtonRed, Color.RED);
@@ -49,7 +51,7 @@ public class StartActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case 0:
                 Log.i(TAG, "onOptionsItemSelected: select info");
