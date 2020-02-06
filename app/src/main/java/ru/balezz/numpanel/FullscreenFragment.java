@@ -1,10 +1,8 @@
 package ru.balezz.numpanel;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,12 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.widget.DrawableUtils;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+
+import org.jetbrains.annotations.Nullable;
 
 public class FullscreenFragment extends Fragment {
     private static final String TAG = "FullscreenFragment";
@@ -26,6 +23,8 @@ public class FullscreenFragment extends Fragment {
 
     ImageView mView0;
     ImageView mView1;
+    ImageView mViewDot;
+
     View mDecorView;
     int uiOptions;
     private int mColor;
@@ -43,7 +42,7 @@ public class FullscreenFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater,
+    public View onCreateView(LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
@@ -52,6 +51,7 @@ public class FullscreenFragment extends Fragment {
 
         mView0 = (ImageView) v.findViewById(R.id.n0);
         mView1 = (ImageView) v.findViewById(R.id.n1);
+        mViewDot = (ImageView) v.findViewById(R.id.dot);
 
         Drawable d = getResources().getDrawable(R.drawable.ic_0);
 
@@ -116,8 +116,10 @@ public class FullscreenFragment extends Fragment {
     private void setColor() {
         Drawable d0 = DrawableCompat.wrap(mView0.getDrawable());
         Drawable d1 = DrawableCompat.wrap(mView1.getDrawable());
+        Drawable dot = DrawableCompat.wrap(mViewDot.getDrawable());
         DrawableCompat.setTint(d0, mColor);
         DrawableCompat.setTint(d1, mColor);
+        DrawableCompat.setTint(dot, mColor);
 
     }
 
