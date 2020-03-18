@@ -11,11 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import androidx.annotation.Nullable;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import org.jetbrains.annotations.Nullable;
 
 public class FullscreenFragment extends Fragment {
     private static final String TAG = "FullscreenFragment";
@@ -27,9 +27,9 @@ public class FullscreenFragment extends Fragment {
 
     View mDecorView;
     int uiOptions;
-    private int mColor;
+    public int mDigitsColor;
 
-    public static Fragment getInstance() {
+    static Fragment getInstance() {
         return new FullscreenFragment();
     }
 
@@ -37,18 +37,15 @@ public class FullscreenFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mColor = getActivity().getIntent().getIntExtra(StartActivity.EXTRA_COLOR, Color.BLACK);
+        mDigitsColor = getActivity().getIntent().getIntExtra(StartActivity.EXTRA_COLOR, Color.BLACK);
     }
 
-    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_fullscreen, container, false);
-
-
         mView0 = (ImageView) v.findViewById(R.id.n0);
         mView1 = (ImageView) v.findViewById(R.id.n1);
         mViewDot = (ImageView) v.findViewById(R.id.dot);
@@ -117,9 +114,9 @@ public class FullscreenFragment extends Fragment {
         Drawable d0 = DrawableCompat.wrap(mView0.getDrawable());
         Drawable d1 = DrawableCompat.wrap(mView1.getDrawable());
         Drawable dot = DrawableCompat.wrap(mViewDot.getDrawable());
-        DrawableCompat.setTint(d0, mColor);
-        DrawableCompat.setTint(d1, mColor);
-        DrawableCompat.setTint(dot, mColor);
+        DrawableCompat.setTint(d0, mDigitsColor);
+        DrawableCompat.setTint(d1, mDigitsColor);
+        DrawableCompat.setTint(dot, mDigitsColor);
 
     }
 

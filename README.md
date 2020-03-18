@@ -1,16 +1,16 @@
-# Цифровая панель android  
+# Android Digital Panel  
 
-## Краткое описание  
+<a href='https://play.google.com/store/apps/details?id=ru.balezz.numpanel'><img alt='Get it on Google Play' height=100 src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/></a>  
 
-Цифровая панель android отображает две цифры на экране устройства в полноэкранном режиме
-На соревнованиях или тренировке по конькобежному спорту спортсмену не всегда удобно самому контролировать время прохождения каждого круга. 
-В этом ему помогает тренер или партнер, который фиксирует время и доводит его до спортсмена с помощью табло. 
-На экране устройства отражаются последние две значащие цифры времени прохождения круга. 
-В зависимости от того, насколько успешно была пройдена дистанция, можно выбрать зеленый или красный цвет цифр.
+## Summary  
 
-## Скриншоты  
+Ski competitions and trainings are more efficient if ski-runner may know the result of each circle. Trainer may help him with showing this result.
+Android Digital Panel allows to shows in fullscreen two digits of each ski-runner circle result. 
+Color of digits are chosen according to color of ski-runner. 
+  
+## Screenshots  
 
 ![](imgs/Screenshot_1580316281.jpg)
 ![](imgs/Screenshot_1580316287.jpg)
-  
-Приложение доступно в Google Play Market по ссылке: 
+   
+   

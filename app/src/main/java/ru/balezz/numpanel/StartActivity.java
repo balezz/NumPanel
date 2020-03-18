@@ -70,7 +70,7 @@ public class StartActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(StartActivity.this, MainActivity.class);
+                Intent i = new Intent(StartActivity.this, FullScreenActivity.class);
                 i.putExtra(EXTRA_COLOR, color);
                 startActivity(i);
             }

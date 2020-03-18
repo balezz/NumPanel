@@ -15,18 +15,23 @@ import androidx.fragment.app.DialogFragment;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class NumPickerFragment extends DialogFragment {
     static final String PANEL_INDEX = "panel_index";
     static final String EXTRA_NUMBER = "number";
     static final int CANCEL = -1;
     private static final String TAG = "NumPickerFragment";
-    View mDecorView;
-    List<Button> mButtons = new ArrayList<>(10);
-    Button btnCancel;
-    int mPanelIndex;
+    private List<Button> mButtons = new ArrayList<>(10);
+    private int mPanelIndex;
 
-    public static NumPickerFragment newInstance(int panel) {
+    /**
+     * Create NumPickerFragment to set left or right position
+     * for indicated value.
+     * @param panel Digit position: 0 - left, 1 - right
+     * @return new dialog view: NumPickerFragment
+     */
+    static NumPickerFragment newInstance(int panel) {
         Bundle args = new Bundle();
         args.putInt(PANEL_INDEX, panel);
         NumPickerFragment npf = new NumPickerFragment();
@@ -37,9 +42,11 @@ public class NumPickerFragment extends DialogFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mDecorView = getActivity().getWindow().getDecorView();
+        View decorView = Objects.requireNonNull(
+                getActivity()).getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
-        mDecorView.setSystemUiVisibility(uiOptions);
+        decorView.setSystemUiVisibility(uiOptions);
+        assert getArguments() != null;
         mPanelIndex = getArguments().getInt(PANEL_INDEX);
     }
 
@@ -72,7 +79,7 @@ public class NumPickerFragment extends DialogFragment {
         mButtons.add((Button) v.findViewById(R.id.btn7));
         mButtons.add((Button) v.findViewById(R.id.btn8));
         mButtons.add((Button) v.findViewById(R.id.btn9));
-        btnCancel = v.findViewById(R.id.btn_cancel);
+        Button btnCancel = v.findViewById(R.id.btn_cancel);
 
         int count = 0;
         for (Button btn : mButtons) {
